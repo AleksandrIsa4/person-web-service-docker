@@ -23,6 +23,7 @@
 
 	<modules>
 		<module>person-server</module>
+		<module>person-gateway</module>
 	</modules>
 
 	<!--TODO: сюда все зависимости попробовать запихать!!!!-->
