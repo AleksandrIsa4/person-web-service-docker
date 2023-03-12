@@ -25,12 +25,14 @@
 		<module>person-server</module>
 	</modules>
 
+	<!--TODO: сюда все зависимости попробовать запихать!!!!-->
 	<dependencyManagement>
 		<dependencies>
 
 		</dependencies>
 	</dependencyManagement>
 
+	<!--TODO: посмотреть как этим менаджементом плагинов пользоваться!!!!-->
 	<build>
 		<pluginManagement>
 			<plugins>

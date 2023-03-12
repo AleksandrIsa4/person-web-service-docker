@@ -1,10 +1,10 @@
 version: '3.1'
 services:
 
-  server:
-    build: server
-    image: person-server
-    container_name: person-server
+  person-server:
+    build: person-server
+    image: person-server-image
+    container_name: person-server-container
     ports:
       - "9090:9090"
     depends_on:
