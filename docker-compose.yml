@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+
+  server:
+    build: server
+    image: person-server
+    container_name: person-server
+    ports:
+      - "9090:9090"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/person
+      - SPRING_DATASOURCE_USERNAME=person
+      - SPRING_DATASOURCE_PASSWORD=person
+
+  db:
+    image: postgres:14-alpine
+    container_name: person-db
+    environment:
+      - POSTGRES_PASSWORD=person
+      - POSTGRES_USER=person
+      - POSTGRES_DB=person

@@ -21,6 +21,10 @@
 		<java.version>11</java.version>
 	</properties>
 
+	<modules>
+		<module>person-server</module>
+	</modules>
+
 	<dependencyManagement>
 		<dependencies>
 
