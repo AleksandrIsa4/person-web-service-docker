@@ -21,6 +21,7 @@ public class PersonService {
     public Person getPerson(Long id) {
         Optional<Person> personOptional = personRepository.findById(id);
         //TODO: а если нету?
+        logger.info("Get person from db: {}", personOptional);
         return personOptional.get();
     }
 
