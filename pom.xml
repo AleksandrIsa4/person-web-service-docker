@@ -26,9 +26,14 @@
 		<module>person-gateway</module>
 	</modules>
 
-	<!--TODO: сюда все зависимости попробовать запихать!!!!-->
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.12.0</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>

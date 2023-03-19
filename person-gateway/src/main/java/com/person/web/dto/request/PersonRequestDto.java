@@ -1,7 +1,14 @@
 package com.person.web.dto.request;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class PersonRequestDto {
+    @NotBlank(message = "name should not be blank")
     private String name;
+    @NotNull(message = "age should not be null")
+    @Min(value = 0, message = "age should be greater than 0")
     private Integer age;
     private Boolean russian;
 

@@ -1,4 +1,4 @@
-package com.person.web;
+package com.person.web.controller;
 
 import com.person.client.PersonClient;
 import com.person.web.dto.request.PersonRequestDto;
@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * TODO: доделать валидацию!!!!!
- */
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(
         value = "/api/v1/person",
@@ -34,7 +33,7 @@ public class PersonController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> savePeople(@RequestBody PersonRequestDto peopleDto) {
+    public ResponseEntity<Object> savePeople(@RequestBody @Valid PersonRequestDto peopleDto) {
         return personClient.savePerson(peopleDto);
     }
 }

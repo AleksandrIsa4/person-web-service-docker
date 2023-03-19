@@ -3,13 +3,13 @@ services:
   person-gateway:
     build: person-gateway
     image: person-gateway-image
-    container_name: shareit-gateway-container
+    container_name: person-gateway-container
     ports:
       - "8080:8080"
     depends_on:
       - person-server
     environment:
-      - SHAREIT_SERVER_URL=http://server:9090
+      - PERSON_SERVER_URL=http://person-server:9090
 
   person-server:
     build: person-server

@@ -1,5 +1,6 @@
 package com.person.service;
 
+import com.person.asserts.AssertPerson;
 import com.person.db.model.Person;
 import com.person.db.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -20,10 +21,11 @@ public class PersonService {
 
     public Person getPerson(Long id) {
         Optional<Person> personOptional = personRepository.findById(id);
-        //TODO: а если нету?
-        //TODO: вообще с исключениями подумать как быть
-        logger.info("Get person from db: {}", personOptional);
-        return personOptional.get();
+        AssertPerson.notFoundTrue(personOptional.isEmpty(), "person %s not found", id);
+        @SuppressWarnings("OptionalGetWithoutIsPresent")
+        Person person = personOptional.get();
+        logger.info("Get person from db: {}", person);
+        return person;
     }
 
     public Long savePerson(Person person) {
