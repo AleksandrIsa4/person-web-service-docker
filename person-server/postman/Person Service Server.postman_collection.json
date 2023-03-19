@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "147c4c3a-01d3-451e-8084-b55eabb52f8d",
+		"name": "Person Service Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21639941"
+	},
+	"item": [
+		{
+			"name": "Получение человека",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/api/v1/person/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Сохранение человека",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Игорь\",\n    \"age\": 24,\n    \"russian\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/v1/person"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9090",
+			"type": "string"
+		}
+	]
+}
