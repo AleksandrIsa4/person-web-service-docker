@@ -8,6 +8,8 @@ jobs:
   prepare-environment:
     runs-on: self-hosted
     steps:
+      - name: cd proecti
+        run: cd /dev/PROECT/person-web-service-docker
       - name: Stop and remove containers, networks
         run: docker-compose down
       - name: Remove unused data
