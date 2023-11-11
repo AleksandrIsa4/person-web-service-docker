@@ -41,7 +41,8 @@ jobs:
       - name: Run command on remote server
         run: |
           cd ${{ secrets.PROJECT_FOLDER }};
-          git checkout develop2;
+          git fetch;
+          git checkout develop;
           git pull;
           mvn clean package;
           docker compose down;
