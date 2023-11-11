@@ -32,7 +32,7 @@ public class PersonController {
         return personClient.getPerson(personId);
     }
 
-    @GetMapping("/sss")
+    @GetMapping("/sss/1")
     public String getPeople2() {
         return "Hello World!";
     }
