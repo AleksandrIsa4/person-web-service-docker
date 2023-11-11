@@ -37,6 +37,11 @@ public class PersonController {
         return "Hello World!";
     }
 
+    @GetMapping
+    public String getPeople3() {
+        return "Hello World!3";
+    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> savePeople(@RequestBody @Valid PersonRequestDto peopleDto) {
         return personClient.savePerson(peopleDto);
