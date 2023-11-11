@@ -29,17 +29,19 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getPeople(@PathVariable("id") Long personId) {
-        return personClient.getPerson(personId);
+        return ResponseEntity.accepted().body("Hello World!999");
+     //   return personClient.getPerson(personId);
     }
 
-    @GetMapping("/sss/1")
-    public String getPeople2() {
-        return "Hello World!";
+    @GetMapping("/sss")
+    public ResponseEntity<Object>  getPeople2() {
+        return ResponseEntity.accepted().body("Hello World!");
+     //   return "Hello World!";
     }
 
-    @GetMapping
-    public String getPeople3() {
-        return "Hello World!3";
+    @GetMapping("/sss5")
+    public ResponseEntity<Object>  getPeople3() {
+        return ResponseEntity.ok("Hello World!7");
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
