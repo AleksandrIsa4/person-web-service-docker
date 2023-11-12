@@ -1,7 +1,10 @@
 name: deploy-runner
+
 on:
   pull_request:
     types: closed
+
+jobs:
   deploy:
     runs-on: self-hosted
     if: github.ref == 'refs/heads/asd2' && github.event.pull_request.merged == true
