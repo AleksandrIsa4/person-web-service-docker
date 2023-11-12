@@ -29,6 +29,9 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getPeople(@PathVariable("id") Long personId) {
+        if(personId==2){
+            System.out.println("Hello World!999");
+        }
         return ResponseEntity.accepted().body("Hello World!999");
      //   return personClient.getPerson(personId);
     }
