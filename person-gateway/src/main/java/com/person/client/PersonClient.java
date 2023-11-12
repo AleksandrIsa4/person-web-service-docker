@@ -11,6 +11,8 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
+import java.util.List;
+
 @Service
 public class PersonClient extends BaseClient {
     private static final String API_PREFIX = "/api/v1/person";
