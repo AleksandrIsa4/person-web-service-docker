@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
-    if: github.ref == 'refs/heads/asd2' && github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/main' && github.event.pull_request.merged == true
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

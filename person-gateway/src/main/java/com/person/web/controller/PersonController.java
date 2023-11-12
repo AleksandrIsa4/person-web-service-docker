@@ -29,8 +29,7 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getPeople(@PathVariable("id") Long personId) {
-        return ResponseEntity.accepted().body("Hello World!999");
-     //   return personClient.getPerson(personId);
+        return personClient.getPerson(personId);
     }
 
     @GetMapping("/sss")

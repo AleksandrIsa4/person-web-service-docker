@@ -1,4 +1,4 @@
-name: pull-unner
+name: pull-runner
 
 on:
   pull_request:
