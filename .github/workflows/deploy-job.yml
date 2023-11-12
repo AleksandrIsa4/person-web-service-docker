@@ -18,6 +18,12 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+      - name: Checkout tests
+        uses: actions/checkout@v3
+        with:
+          repository: 'AleksandrIsa4/person-web-service-docker'
+          ref: ${{ github.event.pull_request.head.ref }}
+          path: tests
       - name: Check and Build application
         run: |
           cp -rf ./tests/checkstyle.xml ./checkstyle.xml
