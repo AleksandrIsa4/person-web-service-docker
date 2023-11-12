@@ -1,10 +1,10 @@
-name: Deploy buy runner
+name: deploy-runner
 on:
   pull_request:
-    types: [ opened, synchronize, reopened ]
+    types: closed
   deploy:
     runs-on: self-hosted
-    if: github.ref == 'refs/heads/asd2'
+    if: github.ref == 'refs/heads/asd2' && github.event.pull_request.merged == true
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
