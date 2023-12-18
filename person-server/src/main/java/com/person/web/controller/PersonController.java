@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
         consumes = MediaType.ALL_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
 )
+@CrossOrigin(origins = {"http://localhost:3000", "https://cyberplace.online", "http://cyberplace.online", "http://45.12.236.120"})
 public class PersonController {
 
     private final PersonService personService;
@@ -25,7 +26,7 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public PersonResponseDto getPeople(@PathVariable("id") Long personId) {
-        System.out.println("123");
+        System.out.println("1234");
         Person people = personService.getPerson(personId);
         return PersonToPersonResponseDto.convert(people);
     }
