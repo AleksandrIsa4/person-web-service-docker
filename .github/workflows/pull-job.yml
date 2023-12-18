@@ -47,6 +47,6 @@ jobs:
           git checkout asd2;
           git pull;
           mvn clean package;
-          docker stop person-gateway-container
-          docker rm person-gateway-container
-          docker-compose up -d
+          docker stop person-gateway-container;
+          docker rm person-gateway-container;
+          docker-compose up -d;
