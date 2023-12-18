@@ -42,7 +42,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script_stop: true
         script:
-          cd /srv/person-web-service-docker
+          cd /srv/person-web-service-docker;
           git fetch;
           git checkout asd2;
           git pull;
