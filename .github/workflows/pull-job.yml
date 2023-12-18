@@ -28,14 +28,15 @@ jobs:
           cp -rf ./tests/suppressions.xml ./suppressions.xml
           mvn install -P check --no-transfer-progress
           docker-compose build
+
   deploy:
-    runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/develop2(3)'
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/asd2'
     #if: github.event.pull_request.merged == true
     #if: ${{ github.ref == 'refs/heads/develop2(3)' }}
     #&& github.event.pull_request.merged == true
-
+    #
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
