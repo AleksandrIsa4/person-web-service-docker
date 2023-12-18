@@ -28,3 +28,25 @@ jobs:
           cp -rf ./tests/suppressions.xml ./suppressions.xml
           mvn install -P check --no-transfer-progress
           docker-compose build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/asd2' && github.event.pull_request.merged == true
+    steps:
+    - name: executing remote ssh commands to deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        port: ${{ secrets.SERVER_PORT }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        script_stop: true
+        script:
+          cd /srv/person-web-service-docker
+          git fetch;
+          git checkout asd2;
+          git pull;
+          mvn clean package;
+          docker stop person-gateway-container
+          docker rm person-gateway-container
+          docker-compose up -d
