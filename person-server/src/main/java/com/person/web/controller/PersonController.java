@@ -25,6 +25,7 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public PersonResponseDto getPeople(@PathVariable("id") Long personId) {
+        System.out.println("123");
         Person people = personService.getPerson(personId);
         return PersonToPersonResponseDto.convert(people);
     }
