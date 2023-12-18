@@ -33,6 +33,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/develop2(3)'
     #&& github.event.pull_request.merged == true
+    #
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
