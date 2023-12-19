@@ -51,11 +51,11 @@ jobs:
         script_stop: true
         #script:
         run:
-          cd $PROJECT_FOLDER;
-          git fetch;
-          git checkout develop2(3);
-          git pull;
-          mvn clean package;
-          docker stop $DOCKER_NAME;
-          docker rm $DOCKER_NAME;
-          docker-compose up -d;
+          cd $PROJECT_FOLDER
+          git fetch
+          git checkout develop2(3)
+          git pull
+          mvn clean package
+          docker stop $DOCKER_NAME
+          docker rm $DOCKER_NAME
+          docker-compose up -d
