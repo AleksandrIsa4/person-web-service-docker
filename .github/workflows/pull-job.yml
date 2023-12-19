@@ -32,8 +32,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    #if: github.event.pull_request.merged == true
-    if:  ${{github.ref == 'refs/heads/develop2(3)'}}  || ${{github.ref == 'refs/heads/asd2'}}
+    #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
+    if:  ${{github.ref == 'refs/heads/asd2'}}
     #&& github.event.pull_request.merged == true
     steps:
     - name: executing remote ssh commands to deploy
@@ -45,7 +45,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script_stop: true
         script:
-        #command: |
           cd /srv/person-web-service-docker;
           git fetch;
           git checkout develop2(3);
