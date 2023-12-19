@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    needs: build
+    #needs: build
     #if: github.ref == 'refs/heads/asd2'
     runs-on: ubuntu-latest
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
