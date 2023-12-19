@@ -42,6 +42,8 @@ jobs:
     #&& github.event.pull_request.merged == true
     steps:
     - run: echo  ${{github.ref}}
+    - run: echo  ${{github.ref == 'refs/heads/asd2'}}
+    - run: echo  ${{github.ref == 'refs/heads/develop5'}}
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
