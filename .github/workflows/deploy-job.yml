@@ -1,4 +1,4 @@
-name: pull-unner
+name: deploy-unner
 
 on:
   pull_request:
