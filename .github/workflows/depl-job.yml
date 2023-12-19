@@ -13,7 +13,7 @@ name: depl-unner
   #    - asd2
 on:
   workflow_run:
-    workflows: ["pull-unner"]
+    workflows: [pull-unner]
     types: [requested]
     branches:
       - asd2
