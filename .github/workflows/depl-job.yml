@@ -1,4 +1,4 @@
-name: pull-unner
+name: depl-unner
 
 on:
   pull_request:
@@ -8,6 +8,7 @@ on:
     branches:
       - asd2
 
+jobs:
   deploy:
     needs: build
     #if: github.ref == 'refs/heads/asd2'
@@ -15,6 +16,7 @@ on:
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
     #if: ${{github.ref == 'refs/pull/asd2/merge'}}
     #&& github.event.pull_request.merged == true
+    #
     steps:
       - run: echo  ${{github.ref}}
       - run: echo  ${{github.ref == 'refs/heads/asd2'}}
