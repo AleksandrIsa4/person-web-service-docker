@@ -46,8 +46,8 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script_stop: true
-        #script:
-        command: |
+        script:
+        #command: |
           cd /srv/person-web-service-docker;
           git fetch;
           git checkout develop2(3);
