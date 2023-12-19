@@ -1,20 +1,14 @@
 name: depl-unner
 
-#on:
+on:
  # pull_request:
  #   branches:
   #    - asd2
  # push:
   #  branches:
   #    - asd2
-  #pull_request:
-  #  types: closed
-  #  branches:
-  #    - asd2
-on:
-  workflow_run:
-    workflows: [pull-unner]
-    types: [requested]
+  pull_request:
+    types: closed
     branches:
       - asd2
       - develop5
