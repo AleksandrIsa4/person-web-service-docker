@@ -5,6 +5,7 @@ on:
     types: [ opened, synchronize, reopened ]
   push:
     branches:
+      - asd2
 
 jobs:
   build:
@@ -33,7 +34,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/asd2'
+    #if: github.ref == 'refs/heads/asd2'
     runs-on: ubuntu-latest
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
     #if: ${{github.ref == 'refs/pull/asd2/merge'}}
