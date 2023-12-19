@@ -33,7 +33,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
-    if:  ${{github.ref == 'refs/heads/develop2(3)'}}  || ${{github.ref == 'refs/heads/asd2'}}
+    if:  ${{github.ref == 'refs/heads/develop2(3)'}}
     #&& github.event.pull_request.merged == true
     steps:
     - name: executing remote ssh commands to deploy
