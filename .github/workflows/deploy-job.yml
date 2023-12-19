@@ -15,6 +15,7 @@ on:
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
     #if: ${{github.ref == 'refs/pull/asd2/merge'}}
     #&& github.event.pull_request.merged == true
+    #
     steps:
       - run: echo  ${{github.ref}}
       - run: echo  ${{github.ref == 'refs/heads/asd2'}}
