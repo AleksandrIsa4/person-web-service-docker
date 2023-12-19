@@ -1,18 +1,24 @@
 name: depl-unner
 
 on:
-  pull_request:
+ # pull_request:
+ #   branches:
+  #    - asd2
+ # push:
+  #  branches:
+  #    - asd2
+  workflow_run:
+    workflows: [ "Run Tests" ]
     branches:
       - asd2
-  push:
-    branches:
-      - asd2
+    types:
+      - completed
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     needs: build
     #if: github.ref == 'refs/heads/asd2'
-    runs-on: ubuntu-latest
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
     #if: ${{github.ref == 'refs/pull/asd2/merge'}}
     #&& github.event.pull_request.merged == true
