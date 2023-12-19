@@ -7,12 +7,10 @@ on:
  # push:
   #  branches:
   #    - asd2
-  workflow_run:
-    workflows: [ "Run Tests" ]
+  pull_request:
+    types: closed
     branches:
       - asd2
-    types:
-      - completed
 
 jobs:
   deploy:
