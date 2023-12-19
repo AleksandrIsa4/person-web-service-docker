@@ -33,29 +33,25 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     #if: github.ref == 'refs/heads/asd2'
-    #if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     #if: ${{ github.ref == 'refs/heads/develop2(3)' }}
     #&& github.event.pull_request.merged == true
 
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
-      env:
-        PROJECT_FOLDER: ${{ secrets.PROJECT_FOLDER }}
-        DOCKER_NAME: ${{ secrets.DOCKER_NAME }}
       with:
         host: ${{ secrets.SERVER_HOST }}
         port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script_stop: true
-        #script:
-        run:
-          cd $PROJECT_FOLDER
-          git fetch
-          git checkout develop2(3)
-          git pull
-          mvn clean package
-          docker stop $DOCKER_NAME
-          docker rm $DOCKER_NAME
-          docker-compose up -d
+        script:
+          cd /srv/person-web-service-docker;
+          git fetch;
+          git checkout develop2(3);
+          git pull;
+          mvn clean package;
+          docker stop person-gateway-container;
+          docker rm person-gateway-container;
+          docker-compose up -d;
