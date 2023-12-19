@@ -1,12 +1,18 @@
 name: depl-unner
 
 on:
-  pull_request:
+ # pull_request:
+ #   branches:
+  #    - asd2
+ # push:
+  #  branches:
+  #    - asd2
+  workflow_run:
+    workflows: [ "Run Tests" ]
     branches:
       - asd2
-  push:
-    branches:
-      - asd2
+    types:
+      - completed
 
 jobs:
   deploy:
