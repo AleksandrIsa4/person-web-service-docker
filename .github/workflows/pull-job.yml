@@ -4,7 +4,9 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
   push:
-    branches: ["asd2"], ["develop2(3)"]
+    branches:
+      - asd2
+      - develop2(3)
 
 jobs:
   build:
