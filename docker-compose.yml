@@ -13,13 +13,13 @@ services:
     container_name: person-gateway-container
     # проброс портов
     ports:
-      - "8080:8080"
+      - "8082:8082"
     # "зависит от",
     depends_on:
       - person-server
     # переменные окружения
     environment:
-      - PERSON_SERVER_URL=http://person-server:9090
+      - PERSON_SERVER_URL=http://person-server:9092
 
   # описание контейнера person-server
   person-server:
@@ -31,13 +31,13 @@ services:
     container_name: person-server-container
     # проброс портов
     ports:
-      - "9090:9090"
+      - "9092:9092"
     # "зависит от",
     depends_on:
       - db
     # переменные окружения
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/person
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5433/person
       - SPRING_DATASOURCE_USERNAME=person
       - SPRING_DATASOURCE_PASSWORD=person
 
