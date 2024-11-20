@@ -16,17 +16,29 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     #needs: build
-    if: ${{github.ref == 'refs/heads/main'}}
+    #if: ${{github.ref == 'refs/heads/main'}}
     #if: github.event.pull_request.merged == true  || ${{github.ref == 'refs/heads/asd2'}} ${{github.ref == 'refs/heads/develop2(3)'}}
     #if: ${{github.ref == 'refs/pull/asd2/merge'}}
     #&& github.event.pull_request.merged == true
 
     steps:
-      - run: echo  ${{github.ref}}
-      - run: echo  ${{github.ref == 'refs/heads/asd2'}}
-      - run: echo  ${{github.ref == 'refs/heads/develop5'}}
-      - run: echo  ${{github.ref == 'refs/heads/main'}}
-      - run: echo  ${{github.event.pull_request.merged}}
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+      - run: echo 1  steps.extract_branch.outputs.branch
+      - run: echo 2  'steps.extract_branch.outputs.branch'
+      - run: echo 3  ${{steps.extract_branch.outputs.branch == 'refs/heads/develop5'}}
+      - run: echo 4  ${{steps.extract_branch.outputs.branch == 'develop5'}}
+      - run: echo 5  steps.extract_branch.outputs.branch == 'develop5'
+      - run: echo 51  steps.extract_branch.outputs.branch == 'refs/heads/develop5'
+      - run: echo 52  ${{steps.extract_branch.outputs.branch}} == 'refs/heads/develop5'
+      - run: echo 53  ${{steps.extract_branch.outputs.branch}}
+      - run: echo 6  ${{github.ref == 'refs/heads/asd2'}}
+      - run: echo 7  ${{github.ref == 'refs/heads/asd2'}}
+      - run: echo 8  ${{github.ref == 'refs/heads/develop5'}}
+      - run: echo 9  ${{github.ref == 'refs/heads/main'}}
+      - run: echo 10  ${{github.event.pull_request.merged}}
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
